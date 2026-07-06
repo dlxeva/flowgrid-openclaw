@@ -44,6 +44,16 @@ FlowGrid for OpenClaw 为 OpenClaw 增加一个本地项目状态层：
 7. OpenClaw 调用 `flg review` 和 `flg merge`。
 8. 新会话从本地文件恢复项目状态。
 
+## 本地验证
+
+先确认 FlowGrid 主仓库已安装为 `flg` 命令，然后运行：
+
+```bash
+bash scripts/run_local_demo.sh
+```
+
+该脚本会在 `.demo-runtime/ai-collaboration-sharing/` 下生成一套可检查的本地项目账本。
+
 ## 仓库结构
 
 ```text
@@ -52,11 +62,25 @@ flowgrid-openclaw/
 ├── docs/
 │   ├── architecture.md
 │   ├── demo-script.md
+│   ├── execution-plan.md
+│   ├── openclaw-framework-alignment.md
+│   ├── recording-runbook.md
 │   └── submission-checklist.md
 ├── examples/
 │   └── creator-project-demo/
+│       ├── README.md
+│       └── session-001.md
 ├── openclaw_app/
-│   └── README.md
+│   ├── README.md
+│   ├── agents/
+│   │   └── project_state_agent.md
+│   ├── tools/
+│   │   └── flowgrid_adapter.md
+│   └── workflows/
+│       └── project_state_loop.md
+├── scripts/
+│   ├── README.md
+│   └── run_local_demo.sh
 └── assets/
     └── README.md
 ```
@@ -72,8 +96,12 @@ flowgrid-openclaw/
 - [x] 新建比赛仓库
 - [x] 明确 OpenClaw-first 参赛定位
 - [x] 补 OpenClaw 集成架构文档
+- [x] 补 OpenClaw 框架对齐文档
 - [x] 补演示脚本文档
-- [x] 补样例项目说明
+- [x] 补录制 runbook
+- [x] 补样例项目说明和 raw session
+- [x] 补本地 demo 脚本
+- [ ] 本机运行验证 demo 脚本
 - [ ] 实现 OpenClaw 最小 host loop
 - [ ] 录制本地运行视频
 - [ ] 制作参赛 PPT
