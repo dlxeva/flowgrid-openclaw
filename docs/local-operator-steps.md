@@ -43,19 +43,40 @@ flg version
 
 ### 3. Run the competition demo script
 
+macOS / Linux / Git Bash:
+
 ```bash
 cd ../flowgrid-openclaw
 bash scripts/run_local_demo.sh
 ```
 
+Windows PowerShell with Git for Windows:
+
+```powershell
+cd C:\Users\夕颜\.openclaw\workspace\flowgrid-openclaw
+& "C:\Program Files\Git\bin\bash.exe" scripts/run_local_demo.sh
+```
+
+Do not use `C:\Windows\System32\bash.exe` for this demo. That path launches WSL and may fail when WSL is not configured.
+
 ### 4. Check generated evidence
+
+macOS / Linux / Git Bash:
 
 ```bash
 ls -la .demo-runtime/ai-collaboration-sharing
 ls -la .demo-runtime/ai-collaboration-sharing/.flg/patches
 cat .demo-runtime/ai-collaboration-sharing/DECISIONS.md
 cat .demo-runtime/ai-collaboration-sharing/PROGRESS.md
-flg handoff
+```
+
+Windows PowerShell:
+
+```powershell
+Get-ChildItem .demo-runtime\ai-collaboration-sharing
+Get-ChildItem .demo-runtime\ai-collaboration-sharing\.flg\patches
+Get-Content .demo-runtime\ai-collaboration-sharing\DECISIONS.md
+Get-Content .demo-runtime\ai-collaboration-sharing\PROGRESS.md
 ```
 
 Run `flg handoff` from inside:
@@ -75,6 +96,12 @@ The demo is ready for recording if the script produces:
 - reviewed decisions
 - merged progress
 - handoff output
+
+## Known Windows Notes
+
+- Python and pip may point to different installed Python versions. The demo is valid as long as `flg version` works and `scripts/run_local_demo.sh` passes.
+- Git for Windows Bash is the recommended Bash runtime on Windows.
+- The local verified command is: `& "C:\Program Files\Git\bin\bash.exe" scripts/run_local_demo.sh`.
 
 ## If It Fails
 
