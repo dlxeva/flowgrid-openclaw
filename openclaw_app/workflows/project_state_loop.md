@@ -96,7 +96,7 @@ Visible proof:
 OpenClaw action:
 
 ```bash
-flg merge --patch .flg/patches/<patch-file>.md --yes
+flg merge --patch .flg/patches/<patch-file>.md
 ```
 
 Visible proof:
@@ -104,6 +104,14 @@ Visible proof:
 - `PROGRESS.md` is updated
 - merge log exists
 - patch status is merged
+
+Note:
+
+`flg merge` asks for human confirmation. For scripted local verification, use:
+
+```bash
+printf "y\n" | flg merge --patch .flg/patches/<patch-file>.md
+```
 
 ## Step 7: Resume Project
 
