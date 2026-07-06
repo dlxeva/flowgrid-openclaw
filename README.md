@@ -46,13 +46,22 @@ FlowGrid for OpenClaw 为 OpenClaw 增加一个本地项目状态层：
 
 ## 本地验证
 
-先确认 FlowGrid 主仓库已安装为 `flg` 命令，然后运行：
+本地 demo 已在 Windows 11 + Git for Windows Bash 环境跑通。
+
+推荐 Windows 录制命令：
+
+```powershell
+cd C:\Users\夕颜\.openclaw\workspace\flowgrid-openclaw
+& "C:\Program Files\Git\bin\bash.exe" scripts/run_local_demo.sh
+```
+
+macOS / Linux / Git Bash：
 
 ```bash
 bash scripts/run_local_demo.sh
 ```
 
-该脚本会在 `.demo-runtime/ai-collaboration-sharing/` 下生成一套可检查的本地项目账本。
+本地运行会在 `.demo-runtime/ai-collaboration-sharing/` 下生成一套可检查的项目账本、session、patch、decision log、progress log 和 handoff 输出。
 
 ## 仓库结构
 
@@ -63,7 +72,10 @@ flowgrid-openclaw/
 │   ├── architecture.md
 │   ├── demo-script.md
 │   ├── execution-plan.md
+│   ├── local-execution-report-2026-07-06.md
+│   ├── local-operator-steps.md
 │   ├── openclaw-framework-alignment.md
+│   ├── recording-plan-after-local-pass.md
 │   ├── recording-runbook.md
 │   └── submission-checklist.md
 ├── examples/
@@ -101,7 +113,8 @@ flowgrid-openclaw/
 - [x] 补录制 runbook
 - [x] 补样例项目说明和 raw session
 - [x] 补本地 demo 脚本
-- [ ] 本机运行验证 demo 脚本
-- [ ] 实现 OpenClaw 最小 host loop
+- [x] 本机运行验证 demo 脚本
+- [x] 补本地执行报告
+- [x] 补录制计划
 - [ ] 录制本地运行视频
-- [ ] 制作参赛 PPT
+- [ ] 最终检查参赛 PPT / PDF
