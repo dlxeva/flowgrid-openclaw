@@ -41,7 +41,7 @@ printf "\n[5/7] Review decisions\n"
 flg review --patch "$PATCH_FILE" --accept-all
 
 printf "\n[6/7] Merge patch\n"
-flg merge --patch "$PATCH_FILE" --yes
+printf "y\n" | flg merge --patch "$PATCH_FILE"
 
 printf "\n[7/7] Resume project\n"
 flg status
@@ -49,8 +49,8 @@ flg handoff
 
 printf "\nGenerated project directory:\n%s\n" "$PROJECT_DIR"
 printf "\nKey files:\n"
-printf "- %s/PROJECT.md\n" "$PROJECT_DIR"
-printf "- %s/DECISIONS.md\n" "$PROJECT_DIR"
-printf "- %s/PROGRESS.md\n" "$PROJECT_DIR"
-printf "- %s/SNAPSHOT.md\n" "$PROJECT_DIR"
-printf "- %s/.flg/patches\n" "$PROJECT_DIR"
+printf -- "- %s/PROJECT.md\n" "$PROJECT_DIR"
+printf -- "- %s/DECISIONS.md\n" "$PROJECT_DIR"
+printf -- "- %s/PROGRESS.md\n" "$PROJECT_DIR"
+printf -- "- %s/SNAPSHOT.md\n" "$PROJECT_DIR"
+printf -- "- %s/.flg/patches\n" "$PROJECT_DIR"
