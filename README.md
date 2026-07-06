@@ -56,13 +56,9 @@ flowgrid-openclaw/
 ├── examples/
 │   └── creator-project-demo/
 ├── openclaw_app/
-│   ├── agents/
-│   ├── tools/
-│   └── workflows/
+│   └── README.md
 └── assets/
-    ├── ppt/
-    ├── screenshots/
-    └── video/
+    └── README.md
 ```
 
 ## 与 FlowGrid 主仓库的关系
@@ -75,8 +71,9 @@ flowgrid-openclaw/
 
 - [x] 新建比赛仓库
 - [x] 明确 OpenClaw-first 参赛定位
-- [ ] 补 OpenClaw 集成架构
-- [ ] 补演示脚本
-- [ ] 准备样例项目
+- [x] 补 OpenClaw 集成架构文档
+- [x] 补演示脚本文档
+- [x] 补样例项目说明
+- [ ] 实现 OpenClaw 最小 host loop
 - [ ] 录制本地运行视频
 - [ ] 制作参赛 PPT
