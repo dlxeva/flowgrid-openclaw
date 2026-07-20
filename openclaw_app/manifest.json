@@ -1,0 +1,39 @@
+{
+  "name": "flowgrid-project-state",
+  "version": "0.1.0",
+  "description": "A local JSONL command adapter for FlowGrid project-state workflows.",
+  "entrypoint": "tools/flowgrid_adapter.py",
+  "protocol": "jsonl-stdio",
+  "tools": [
+    {
+      "name": "initialize_project",
+      "description": "Initialize a local FlowGrid project ledger.",
+      "required": ["project_dir", "project_name"]
+    },
+    {
+      "name": "save_session",
+      "description": "Persist a raw user-agent session before extraction.",
+      "required": ["project_dir", "session_id", "content"]
+    },
+    {
+      "name": "closeout_session",
+      "description": "Create a pending FlowGrid closeout patch from a saved session.",
+      "required": ["project_dir", "session_id"]
+    },
+    {
+      "name": "review_decisions",
+      "description": "Review a pending patch. Demo mode uses explicit accept_all only.",
+      "required": ["project_dir", "patch"]
+    },
+    {
+      "name": "merge_patch",
+      "description": "Merge a reviewed patch into formal project state.",
+      "required": ["project_dir", "patch"]
+    },
+    {
+      "name": "resume_project",
+      "description": "Return the formal handoff context for a new agent session.",
+      "required": ["project_dir"]
+    }
+  ]
+}

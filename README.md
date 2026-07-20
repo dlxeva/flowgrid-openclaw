@@ -38,11 +38,11 @@ FlowGrid for OpenClaw 为 OpenClaw 增加一个本地项目状态层：
 1. 用户在 OpenClaw 中启动一个创作或方案项目。
 2. OpenClaw 调用 FlowGrid 初始化本地项目账本。
 3. 用户自然讨论项目目标、约束、判断和下一步。
-4. OpenClaw 保存原始 session。
+4. OpenClaw 通过 JSONL 工具适配器保存原始 session。
 5. OpenClaw 调用 `flg closeout` 生成待审核 patch。
-6. 用户审核候选决策。
+6. 演示使用明确的 `accept_all` 模式，并将结果标为 medium authority；生产宿主应在自己的 UI 中提供审核。
 7. OpenClaw 调用 `flg review` 和 `flg merge`。
-8. 新会话从本地文件恢复项目状态。
+8. 新会话从本地文件恢复项目状态，并写入可检查的 tool trace。
 
 ## 本地验证
 
@@ -61,7 +61,9 @@ macOS / Linux / Git Bash：
 bash scripts/run_local_demo.sh
 ```
 
-本地运行会在 `.demo-runtime/ai-collaboration-sharing/` 下生成一套可检查的项目账本、session、patch、decision log、progress log 和 handoff 输出。
+本地运行会在 `.demo-runtime/ai-collaboration-sharing/` 下生成一套可检查的项目账本、session、patch、decision log、progress log、handoff 输出和 `openclaw-tool-trace.jsonl`。脚本会断言 session、confirmed evidence、merged patch 和完整六步工具轨迹均存在。
+
+演示依赖的 FlowGrid 版本与提交记录在 [`flowgrid-core.lock`](flowgrid-core.lock)。传入 `FLOWGRID_REPO=/path/to/FlowGrid` 时，脚本会同时校验 Git SHA；不传时至少校验 CLI 版本。
 
 ## 仓库结构
 
@@ -83,11 +85,13 @@ flowgrid-openclaw/
 │       ├── README.md
 │       └── session-001.md
 ├── openclaw_app/
+│   ├── manifest.json
 │   ├── README.md
 │   ├── agents/
 │   │   └── project_state_agent.md
 │   ├── tools/
-│   │   └── flowgrid_adapter.md
+│   │   ├── flowgrid_adapter.md
+│   │   └── flowgrid_adapter.py
 │   └── workflows/
 │       └── project_state_loop.md
 ├── scripts/

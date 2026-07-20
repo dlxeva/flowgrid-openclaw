@@ -25,10 +25,7 @@ Assistant:
 可以。第一版结构建议是：先讲痛点，再讲一个真实项目怎么丢状态，然后引出 FlowGrid 的项目账本，再演示 OpenClaw 如何通过 FlowGrid closeout、review、merge、resume。这样用户能看到方法，不只是听概念。
 
 User:
-那我们这次先决定：这个分享的标题方向就是 AI 协作从聊天走向项目状态。核心例子用 FlowGrid for OpenClaw。下一步先做 10 页 PPT 大纲，然后用 demo 视频补充说服力。
-
-Assistant:
-确认。当前决策包括：分享定位为 AI 协作方式升级；目标用户是 AI 深度使用者；核心痛点聚焦项目状态断裂；案例使用 FlowGrid for OpenClaw；下一步先产出 10 页 PPT 大纲，再补 demo 视频。
+我现在确认这次分享的标题方向：AI 协作从聊天走向项目状态。核心例子用 FlowGrid for OpenClaw。第一步先做 10 页 PPT 大纲，再用 demo 视频补充说服力。这个方向只有在观众把它误解成工具教程时才重新讨论。
 
 ## Expected Extraction
 

@@ -2,9 +2,17 @@
 
 ## Purpose
 
-This adapter defines how OpenClaw should call FlowGrid during the competition demo.
+This adapter defines how OpenClaw calls FlowGrid during the competition demo.
 
-The adapter can start as a documented shell-command wrapper. It does not need to become a polished plugin before the demo is proven.
+The executable implementation is [`flowgrid_adapter.py`](flowgrid_adapter.py).
+It uses JSONL over stdio, which keeps the integration independent of an
+unverified OpenClaw plugin API. Pass `--manifest` to inspect tool metadata and
+`--serve` to process requests.
+
+```bash
+printf '%s\n' '{"tool":"resume_project","project_dir":"/tmp/example"}' \
+  | FLOWGRID_BIN=/path/to/flg python3 openclaw_app/tools/flowgrid_adapter.py --serve
+```
 
 ## Required Commands
 
@@ -130,6 +138,7 @@ OpenClaw should follow these rules:
 
 ## Demo Implementation Shortcut
 
-For the first demo, the adapter can be represented by a scripted workflow that OpenClaw triggers step by step.
-
-The competition proof point is that OpenClaw operates the workflow and FlowGrid creates durable local project state.
+The local demo invokes the executable adapter for every stage and asserts the
+trace, session, evidence index, merge log, and handoff output. The competition
+proof point is that OpenClaw can operate the workflow through a real tool
+boundary while FlowGrid creates durable local project state.

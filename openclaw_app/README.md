@@ -1,13 +1,13 @@
 # OpenClaw App
 
-This directory will contain the OpenClaw-side integration layer.
+This directory contains the OpenClaw-side integration layer.
 
-Planned modules:
+`manifest.json` describes the available tools. `tools/flowgrid_adapter.py`
+implements a JSONL-over-stdio command adapter: an OpenClaw tool runner sends
+one request object per line and receives one result object per line. The
+adapter delegates to the FlowGrid CLI and writes a local audit trace under
+`.flg/openclaw-tool-trace.jsonl`.
 
-- `agents/`: host agent definitions
-- `tools/`: FlowGrid command adapters
-- `workflows/`: start, closeout, review, merge, resume workflows
-
-Immediate target:
-
-Build the smallest visible OpenClaw workflow that can call FlowGrid and complete the demo loop.
+It deliberately does not claim a proprietary OpenClaw SDK integration. The
+competition demo proves a portable tool boundary that OpenClaw can load or
+bridge from its own tool runner.
